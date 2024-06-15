@@ -3,11 +3,11 @@ import axios from "axios";
 import { NewsSentimentData } from "../types";
 
 const useNewsSentiment = () => {
-  const [data, setData] = useState<NewsSentimentData | null>(null);
+  const ticker = "AAPL";
+  const apiKey = process.env.APP_ALPHA_VANTAGE_API_KEY;
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
-  const apiKey = process.env.APP_ALPHA_VANTAGE_API_KEY;
-  const ticker = "AAPL";
+  const [data, setData] = useState<NewsSentimentData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {

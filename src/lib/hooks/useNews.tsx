@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NewsSentimentData } from "@/lib/types";
 import { MoveDownRight, MoveUpRight } from "lucide-react";
 
-const useNewsCardInfo = (newsSentiment: NewsSentimentData | null) => {
+const useNews = (newsSentiment: NewsSentimentData | null) => {
   const [currentHeadlineIndex, setCurrentHeadlineIndex] = useState(0);
 
   useEffect(() => {
@@ -51,4 +51,4 @@ const useNewsCardInfo = (newsSentiment: NewsSentimentData | null) => {
   return { currentHeadline, sentimentColor, sentimentText, arrowIcon };
 };
 
-export default useNewsCardInfo;
+export default useNews;

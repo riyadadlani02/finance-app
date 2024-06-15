@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import menuData from "@/lib/constants";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
   const pathName = usePathname();

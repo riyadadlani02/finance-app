@@ -6,20 +6,22 @@ import { Separator } from "@/components/ui/separator";
 import HomeHeader from "@/components/home/header.tsx";
 import MarketsCard from "@/components/home/card/markets";
 import useNewsSentiment from "@/lib/hooks/useSentimentData";
-import SectorPerformaceCard from "@/components/home/card/sector_performace";
+import useSectorPerformanceData from "@/lib/hooks/useSectorPerformanceData";
+import SectorPerformaceCard from "@/components/home/card/sector-performance";
 
 export default function Dashboard() {
   const { data: newsSentiment } = useNewsSentiment();
+  const { data: sectorPerformace } = useSectorPerformanceData();
 
   return (
     <main>
       <section className="space-y-14">
         <HomeHeader />
         <Separator className="bg-muted" />
-        <section className=" space-y-16">
-          <div className="flex space-x-10">
+        <section className=" space-y-14">
+          <div className="flex space-x-6">
             <NewsCard newsSentiment={newsSentiment} />
-            <SectorPerformaceCard />
+            <SectorPerformaceCard sectorPerformance={sectorPerformace} />
           </div>
           <MarketsCard />
         </section>

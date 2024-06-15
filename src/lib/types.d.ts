@@ -38,3 +38,15 @@ interface Topic {
   topic: string;
   relevance_score: string;
 }
+
+interface SectorPerformance {
+  sector: string;
+  changesPercentage: string;
+}
+
+interface FormattedSector {
+  sector: string;
+  formatted: string;
+  textColor: string;
+  gradientClass: string;
+}

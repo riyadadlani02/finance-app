@@ -7,7 +7,9 @@ const Layout = (props: Props) => {
   return (
     <div className="flex overflow-hidden h-screen">
       <Sidebar />
-      <div className="w-full overflow-y-auto">{props.children}</div>
+      <div className="w-full overflow-y-auto px-default-x py-default-y">
+        {props.children}
+      </div>
     </div>
   );
 };

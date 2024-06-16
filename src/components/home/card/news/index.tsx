@@ -13,7 +13,7 @@ const NewsCard = ({ newsSentiment }: Props) => {
     useNews(newsSentiment);
 
   return (
-    <Card className="lg-md:w-[45%] p-2 flex justify-between flex-col max-lg-md:space-y-5">
+    <Card className="lg-md:w-[45%] lg-md:p-2 flex justify-between flex-col max-lg-md:space-y-5">
       <CardHeader className="flex flex-row space-y-0 space-x-2">
         <NewsSentiment
           arrowIcon={arrowIcon}

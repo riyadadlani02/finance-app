@@ -12,7 +12,7 @@ const SectorPerformanceCard = ({ sectorPerformance }: Props) => {
     useSectorPerformance(sectorPerformance);
 
   return (
-    <Card className="lg-md:w-[55%] p-2 flex justify-between flex-col">
+    <Card className="lg-md:w-[55%] lg-md:p-2 flex justify-between flex-col">
       <CardHeader className="flex flex-row items-center justify-between space-y-0">
         <CardTitle className="text-base">Sector Performance</CardTitle>
         <span className="text-muted-foreground text-xs">% per change</span>

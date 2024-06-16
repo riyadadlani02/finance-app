@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FormattedSector, SectorPerformance } from "@/lib/types";
 
 function useSectorPerformance(sectorPerformance: SectorPerformance[] | null): {
   formattedSectors: FormattedSector[];

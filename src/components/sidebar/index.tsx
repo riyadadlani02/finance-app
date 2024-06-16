@@ -9,7 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import menuData from "@/lib/constants";
+import { menuData } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 
 const Sidebar = () => {

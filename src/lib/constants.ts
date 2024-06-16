@@ -1,11 +1,10 @@
-import { SideMenu } from "./types";
 import { SearchIcon } from "@/components/icons/search";
 import { BookIcon } from "@/components/icons/book";
 import { HomeIcon } from "@/components/icons/home";
 import { BookMarkIcon } from "@/components/icons/bookmark";
 import { SettingsIcon } from "@/components/icons/settings";
 
-const menuData: SideMenu[] = [
+export const menuData: SideMenu[] = [
   {
     title: "Home",
     path: "/dashboard",
@@ -33,4 +32,20 @@ const menuData: SideMenu[] = [
   },
 ];
 
-export default menuData;
+export const navData: HeaderNav[] = [
+  {
+    id: 0,
+    title: "Dashboard",
+    path: "/dashboard",
+  },
+  {
+    id: 1,
+    title: "About us",
+    path: "/#",
+  },
+  {
+    id: 2,
+    title: "Pricing",
+    path: "/#",
+  },
+];

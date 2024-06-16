@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { NewsSentimentData } from "@/lib/types";
 import { MoveDownRight, MoveUpRight } from "lucide-react";
 
 const useNews = (newsSentiment: NewsSentimentData | null) => {

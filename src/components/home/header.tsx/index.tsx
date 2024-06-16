@@ -12,12 +12,14 @@ const HomeHeader = () => {
   });
 
   return (
-    <header className="flex justify-between items-center">
+    <header className="xs:flex justify-between items-center max-xs:space-y-5">
       <div className="flex flex-col">
-        <span className="text-2xl font-bold">Hello, Jane</span>
-        <span className="text-muted-foreground text-lg">{formattedDate}</span>
+        <span className="text-2xl font-bold max-sm:text-lg">Hello, Jane</span>
+        <span className="text-muted-foreground text-lg max-sm:text-base">
+          {formattedDate}
+        </span>
       </div>
-      <div className="flex space-x-3">
+      <div className="flex space-x-3 ">
         <Link href={"#"}>
           <div className="flex px-3 bg-dark-gray h-8 space-x-3 rounded-full items-center">
             <Compass className="text-muted-foreground w-4" />

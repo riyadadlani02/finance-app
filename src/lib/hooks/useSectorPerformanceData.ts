@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { SectorPerformance } from "../types";
+import { useState, useEffect } from "react";
 
-const useSectorPerformanceData = () => {
+const useSectorPerformannceData = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
   const [data, setData] = useState<SectorPerformance[] | null>(null);
@@ -27,4 +26,4 @@ const useSectorPerformanceData = () => {
   return { data, loading, error };
 };
 
-export default useSectorPerformanceData;
+export default useSectorPerformannceData;

@@ -2,7 +2,6 @@ import React from "react";
 import NewsHeadline from "./headline";
 import NewsSentiment from "./sentiment";
 import useNews from "@/lib/hooks/useNews";
-import { NewsSentimentData } from "@/lib/types";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface Props {
@@ -14,7 +13,7 @@ const NewsCard = ({ newsSentiment }: Props) => {
     useNews(newsSentiment);
 
   return (
-    <Card className="w-[45%] p-2 flex justify-between flex-col">
+    <Card className="lg-md:w-[45%] p-2 flex justify-between flex-col max-lg-md:space-y-5">
       <CardHeader className="flex flex-row space-y-0 space-x-2">
         <NewsSentiment
           arrowIcon={arrowIcon}

@@ -1,8 +1,16 @@
-export type SideMenu = {
+interface SideMenu {
   title: string;
   path: string;
   Component: ({ active }: { active: boolean }) => JSX.Element;
-};
+}
+
+interface HeaderNav {
+  id: number;
+  tab?: string;
+  title: string;
+  path?: string;
+  submenu?: HeaderNav[];
+}
 
 interface NewsSentimentData {
   items: string;

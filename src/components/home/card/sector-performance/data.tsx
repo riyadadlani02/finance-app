@@ -1,5 +1,4 @@
 import React from "react";
-import { FormattedSector } from "@/lib/types";
 
 interface Props {
   formattedSectors: FormattedSector[];
@@ -11,7 +10,7 @@ const SectorPerformanceData = ({
   totalPercentage,
 }: Props) => {
   return (
-    <div className="grid grid-rows-6 grid-flow-col gap-x-7 relative space-y-[1px] ">
+    <div className="xs:grid grid-rows-6 grid-flow-col gap-x-7 relative space-y-[1px] ">
       <div className="relative flex justify-between items-center pr-2">
         <span className="text-sm font-semibold">All sectors</span>
         <span className="text-xs font-semibold">

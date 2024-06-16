@@ -22,6 +22,15 @@ const config = {
         "default-x": "100px",
         "default-y": "50px",
       },
+      screens: {
+        xs: "550px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        "lg-md": "1154px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

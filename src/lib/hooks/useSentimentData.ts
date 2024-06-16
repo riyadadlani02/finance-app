@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { NewsSentimentData } from "../types";
+import { useState, useEffect } from "react";
 
 const useNewsSentiment = () => {
   const ticker = "AAPL";

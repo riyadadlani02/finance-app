@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 interface Props {
-  timeframe: string;
+  timeframe: string | null;
   symbol: string | null;
 }
 
@@ -11,14 +11,14 @@ const useMarketData = ({ timeframe, symbol }: Props) => {
 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
-  const [data, setData] = useState<Symbols | null>(null);
+  const [data, setData] = useState<FinancialData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const endpoint = `https://api.twelvedata.com/time_series?symbol=${symbol}&interval=${timeframe}&apikey=${apiKey}`;
 
       try {
-        const response = await axios.get<Symbols>(endpoint);
+        const response = await axios.get<FinancialData>(endpoint);
         setData(response.data);
       } catch (error: any) {
         setError(error);
@@ -28,7 +28,7 @@ const useMarketData = ({ timeframe, symbol }: Props) => {
     };
 
     fetchData();
-  }, []);
+  }, [symbol, timeframe]);
 
   return { data, loading, error };
 };

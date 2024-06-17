@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const useMarketQuotes = () => {
-  const apiKey = "ba0aa7321d3f480da588948a7869e92b";
+  const apiKey = "2c3b8b1ca3ee4242b91473f8fff6ef8d";
   // const symbol = "SPX,IXIC,DJI,RUT,XAG/USD,GOLD,WTI";
   const symbol = "SPX,IXIC,DJI";
   const [loading, setLoading] = useState<boolean>(true);

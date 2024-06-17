@@ -5,13 +5,16 @@ interface QuoteUtils {
   getPercentChangeColor: (percentChange: string) => string;
 }
 
-const useQuoteUtils = (): QuoteUtils => {
+const useQuotes = (): QuoteUtils => {
   const formatNumber = (numStr: string) => {
     const num = parseFloat(numStr);
     return num.toFixed(2);
   };
 
   const getFirstTwoWords = (name: string) => {
+    if (!name) {
+      return "";
+    }
     const words = name.split(" ");
     if (words.length > 1) {
       return words.slice(0, 2).join(" ");
@@ -38,4 +41,4 @@ const useQuoteUtils = (): QuoteUtils => {
   };
 };
 
-export default useQuoteUtils;
+export default useQuotes;

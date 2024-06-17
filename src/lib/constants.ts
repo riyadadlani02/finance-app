@@ -49,3 +49,30 @@ export const navData: HeaderNav[] = [
     path: "/#",
   },
 ];
+
+export const timeframe: TF[] = [
+  {
+    id: "1h",
+    name: "1H",
+  },
+  {
+    id: "2h",
+    name: "2H",
+  },
+  {
+    id: "4h",
+    name: "4H",
+  },
+  {
+    id: "1day",
+    name: "1D",
+  },
+  {
+    id: "1week",
+    name: "1W",
+  },
+  {
+    id: "1month",
+    name: "1M",
+  },
+];

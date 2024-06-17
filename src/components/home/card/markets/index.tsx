@@ -1,29 +1,36 @@
-import React from "react";
+import React, { Fragment } from "react";
+import MarketChart from "./chart";
+import MarketQuote from "./quote";
 import { Card, CardContent } from "@/components/ui/card";
-import useMarketQuotes from "@/lib/hooks/useMarketQuotes";
-import QuoteData from "./quote";
-import { useSearchParams } from "next/navigation";
-import useMarketData from "@/lib/hooks/useMarketData";
 
-const MarketsCard = () => {
-  const { data } = useMarketQuotes();
-  const useSearch = useSearchParams();
-  const symbol = useSearch.get("symbol");
-  const { data: marketData } = useMarketData({
-    symbol: symbol,
-    timeframe: "1month",
-  });
-  console.log("====================================");
-  console.log(marketData);
-  console.log("====================================");
+interface Props {
+  quoteData: Symbols | null;
+  marketData: FinancialData | null;
+  symbol: string | null;
+}
 
+const MarketsCard = ({ symbol, quoteData, marketData }: Props) => {
   return (
     <div className="space-y-3">
       <h2 className="font-medium text-muted-foreground ">Markets</h2>
       <Card>
-        <CardContent className="flex pt-6 ">
-          <QuoteData data={data} />
-          <div></div>
+        <CardContent
+          className={`flex pt-6 ${
+            marketData?.values ? "justify-between " : "space-x-6"
+          }`}
+        >
+          {!marketData ||
+          !marketData.values ||
+          marketData.values.length === 0 ? (
+            <div className="font-medium text-sm flex items-center justify-center w-full">
+              There is no market data availabe.
+            </div>
+          ) : (
+            <Fragment>
+              <MarketQuote quoteData={quoteData} symbol={symbol} />
+              <MarketChart marketData={marketData} quoteData={quoteData} />
+            </Fragment>
+          )}
         </CardContent>
       </Card>
     </div>

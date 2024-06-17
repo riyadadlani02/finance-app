@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const useNewsSentiment = () => {
   const ticker = "AAPL";
-  const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+  const apiKey = "J0NN7BXV2SAJ9NR4";
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
   const [data, setData] = useState<NewsSentimentData | null>(null);

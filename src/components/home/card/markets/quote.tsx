@@ -1,38 +1,43 @@
-import useQuoteUtils from "@/lib/hooks/useTextUtils";
+import useQuotes from "@/lib/hooks/useQuotes";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 
 interface Props {
-  data: Symbols | null;
+  quoteData: Symbols | null;
+  symbol: string | null;
 }
 
-const QuoteData = ({ data }: Props) => {
+const MarketQuote = ({ quoteData, symbol }: Props) => {
   const {
     formatNumber,
     getFirstTwoWords,
     getChangeColor,
     getPercentChangeColor,
-  } = useQuoteUtils();
+  } = useQuotes();
   const router = useRouter();
 
   return (
     <ul className="w-[40%]">
-      {data &&
-        Object.keys(data).map((key, index) => {
-          const item = data[key];
+      {quoteData &&
+        Object.keys(quoteData).map((key, index) => {
+          const item = quoteData[key];
           return (
             <li key={index}>
               <button
-                className="flex justify-between items-center text-xs w-full hover:bg-muted px-1.5 rounded-md py-1.5"
-                onClick={() => router.push(`/dashboard?symbol=${item.symbol}`)}
+                className={`flex justify-between items-center text-xs w-full hover:bg-muted px-1.5 rounded-md py-1.5 ${
+                  symbol?.includes(item.symbol) && "bg-muted"
+                }`}
+                onClick={() =>
+                  router.push(`?symbol=${item.symbol}&timeframe=1day`)
+                }
               >
-                <div className="">
-                  <span className="font-bold text-left">
+                <div className="truncate">
+                  <span className="font-bold text-left truncate">
                     {getFirstTwoWords(item.name)}
                   </span>
                 </div>
-                <div className="flex space-x-7">
+                <div className="flex space-x-7 items-center">
                   <span>{formatNumber(item.close)}</span>
                   <div className="w-10">
                     <span className={getChangeColor(item.change)}>
@@ -57,4 +62,4 @@ const QuoteData = ({ data }: Props) => {
   );
 };
 
-export default QuoteData;
+export default MarketQuote;

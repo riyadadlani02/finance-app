@@ -12,6 +12,11 @@ interface HeaderNav {
   submenu?: HeaderNav[];
 }
 
+interface TF {
+  id: string;
+  name: string;
+}
+
 interface NewsSentimentData {
   items: string;
   sentiment_score_definition: string;
@@ -107,4 +112,29 @@ interface Fiftytwoweek {
   low_change_percent: string;
   high_change_percent: string;
   range: string;
+}
+
+interface FinancialData {
+  meta: Meta;
+  values: Value[];
+  status: string;
+}
+
+interface Meta {
+  symbol: string;
+  interval: string;
+  currency: string;
+  exchange_timezone: string;
+  exchange: string;
+  mic_code: string;
+  type: string;
+}
+
+interface Value {
+  datetime: string;
+  open: string;
+  high: string;
+  low: string;
+  close: string;
+  volume: string;
 }

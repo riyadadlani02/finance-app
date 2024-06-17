@@ -7,7 +7,7 @@ interface Props {
 }
 
 const useMarketData = ({ timeframe, symbol }: Props) => {
-  const apiKey = "2c3b8b1ca3ee4242b91473f8fff6ef8d";
+  const apiKey = "aea9295746f84b9b82e5445b9574d0ae";
 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);

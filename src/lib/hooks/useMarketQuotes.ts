@@ -1,19 +1,20 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const useNewsSentiment = () => {
-  const ticker = "AAPL";
-  const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+const useMarketQuotes = () => {
+  const apiKey = "ba0aa7321d3f480da588948a7869e92b";
+  // const symbol = "SPX,IXIC,DJI,RUT,XAG/USD,GOLD,WTI";
+  const symbol = "SPX,IXIC,DJI";
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
-  const [data, setData] = useState<NewsSentimentData | null>(null);
+  const [data, setData] = useState<Symbols | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const endpoint = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=${ticker}&apikey=${apiKey}`;
+      const endpoint = `https://api.twelvedata.com/quote?symbol=${symbol}&apikey=${apiKey}`;
 
       try {
-        const response = await axios.get<NewsSentimentData>(endpoint);
+        const response = await axios.get<Symbols>(endpoint);
         setData(response.data);
       } catch (error: any) {
         setError(error);
@@ -23,9 +24,9 @@ const useNewsSentiment = () => {
     };
 
     fetchData();
-  }, [ticker, apiKey]);
+  }, []);
 
   return { data, loading, error };
 };
 
-export default useNewsSentiment;
+export default useMarketQuotes;

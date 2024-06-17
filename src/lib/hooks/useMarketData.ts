@@ -1,19 +1,24 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const useNewsSentiment = () => {
-  const ticker = "AAPL";
-  const apiKey = process.env.ALPHA_VANTAGE_API_KEY;
+interface Props {
+  timeframe: string;
+  symbol: string | null;
+}
+
+const useMarketData = ({ timeframe, symbol }: Props) => {
+  const apiKey = "2c3b8b1ca3ee4242b91473f8fff6ef8d";
+
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
-  const [data, setData] = useState<NewsSentimentData | null>(null);
+  const [data, setData] = useState<Symbols | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const endpoint = `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers=${ticker}&apikey=${apiKey}`;
+      const endpoint = `https://api.twelvedata.com/time_series?symbol=${symbol}&interval=${timeframe}&apikey=${apiKey}`;
 
       try {
-        const response = await axios.get<NewsSentimentData>(endpoint);
+        const response = await axios.get<Symbols>(endpoint);
         setData(response.data);
       } catch (error: any) {
         setError(error);
@@ -23,9 +28,9 @@ const useNewsSentiment = () => {
     };
 
     fetchData();
-  }, [ticker, apiKey]);
+  }, []);
 
   return { data, loading, error };
 };
 
-export default useNewsSentiment;
+export default useMarketData;

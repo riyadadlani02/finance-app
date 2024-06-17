@@ -58,3 +58,53 @@ interface FormattedSector {
   textColor: string;
   gradientClass: string;
 }
+
+// interface Symbols {
+//   data: Datum[];
+//   count: number;
+//   status: string;
+// }
+
+// interface Datum {
+//   symbol: string;
+//   name: string;
+//   country: string;
+//   currency: string;
+//   exchange: string;
+//   mic_code: string;
+// }
+
+interface Symbols {
+  [key: string]: Quotes;
+}
+
+interface Quotes {
+  symbol: string;
+  name: string;
+  exchange: string;
+  mic_code: string;
+  currency: string;
+  datetime: string;
+  timestamp: number;
+  open: string;
+  high: string;
+  low: string;
+  close: string;
+  volume: string;
+  previous_close: string;
+  change: string;
+  percent_change: string;
+  average_volume: string;
+  is_market_open: boolean;
+  fifty_two_week: Fiftytwoweek;
+}
+
+interface Fiftytwoweek {
+  low: string;
+  high: string;
+  low_change: string;
+  high_change: string;
+  low_change_percent: string;
+  high_change_percent: string;
+  range: string;
+}

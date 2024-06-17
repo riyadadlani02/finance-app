@@ -11,10 +11,10 @@ export default function Home() {
         </Start>
         <Nav data={navData} />
         <End>
-          <Button type="transparent" to={"#"}>
+          <Button type="transparent" to={"/auth"}>
             Sign In
           </Button>
-          <Button to={"#"}>Sign Up</Button>
+          <Button to={"/auth"}>Sign Up</Button>
         </End>
       </Header>
     </>

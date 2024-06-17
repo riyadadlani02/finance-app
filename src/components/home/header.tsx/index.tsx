@@ -4,7 +4,7 @@ import { Compass, Maximize, Search } from "lucide-react";
 
 const HomeHeader = () => {
   const currentDate = new Date();
-
+  const name = sessionStorage.getItem('name');
   const formattedDate = currentDate.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
@@ -14,7 +14,7 @@ const HomeHeader = () => {
   return (
     <header className="xs:flex justify-between items-center max-xs:space-y-5">
       <div className="flex flex-col">
-        <span className="text-2xl font-bold max-sm:text-lg">Hello, Jane</span>
+        <span className="text-2xl font-bold max-sm:text-lg">Hello, {name}</span>
         <span className="text-muted-foreground text-lg max-sm:text-base">
           {formattedDate}
         </span>
